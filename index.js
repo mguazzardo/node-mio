@@ -27,7 +27,35 @@ app.get('/',function(req,res){
      password: mysqlPass,
      database: mysqlDB
    };
-   res.send('Hello World!');
+   
+   console.log('MySQL Connection config:');
+   console.log(connectionOptions);
+
+   var connection = mysql.createConnection(connectionOptions);
+
+   connection.connect();
+ 
+   connection.query('SELECT * FROM MOE_ITEM_T', function (error, results, fields) {
+     if (error) throw error;
+     
+     responseStr = '';
+
+     results.forEach(function(data){
+        responseStr += data.ITEM_NAME + ' : ';
+        console.log(data);
+     });
+
+     if(responseStr.length == 0)
+        responseStr = 'No records found';
+
+     console.log(responseStr);
+
+     res.status(200).send(responseStr);
+   });
+    
+   connection.end();
+   
+   
 });
 //app.get('/', function (req, res) {
 //  res.send('Hello World!');
