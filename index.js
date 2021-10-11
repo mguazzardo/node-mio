@@ -11,6 +11,7 @@ var app = express();
 var port = process.env.PORT || 8080;
 var responseStr = "MySQL Data:";
 
+/*
 app.get('/',function(req,res){
    
    var mysqlHost = process.env.MYSQL_HOST || 'mariadb';
@@ -26,10 +27,10 @@ app.get('/',function(req,res){
      password: mysqlPass,
      database: mysqlDB
    };
-
-//app.get('/', function (req, res) {
-//  res.send('Hello World!');
-//});
+*/
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
  
 
 app.listen(port, () => {
