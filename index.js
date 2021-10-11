@@ -27,7 +27,7 @@ app.get('/',function(req,res){
      password: mysqlPass,
      database: mysqlDB
    };
-}
+});
 //app.get('/', function (req, res) {
 //  res.send('Hello World!');
 //});
