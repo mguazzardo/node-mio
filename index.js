@@ -35,13 +35,13 @@ app.get('/',function(req,res){
 
    connection.connect();
  
-   connection.query('SELECT * FROM MOE_ITEM_T', function (error, results, fields) {
+   connection.query('SELECT * FROM users', function (error, results, fields) {
      if (error) throw error;
      
      responseStr = '';
 
      results.forEach(function(data){
-        responseStr += data.ITEM_NAME + ' : ';
+        responseStr += data.firstname + ' : ';
         console.log(data);
      });
 
